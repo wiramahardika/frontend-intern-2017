@@ -1,0 +1,35 @@
+div(class="container-fluid nav")
+  div(class="row")
+    div(class="col-xs-1")
+      i(id="show-sidebar-trigger" class="fa fa-bars" onclick="show_sidebar();")
+      i(id="hide-sidebar-trigger" class="fa fa-close hide" onclick="hide_everything();")
+    div(class="col-xs-9 text-center")
+      img(src="../images/logo.png" class="logo")
+    div(class="col-xs-1")
+      i(id="show-search-trigger" class="fa fa-search" onclick="show_search();")
+      i(id="hide-search-trigger" class="fa fa-close hide" onclick="hide_everything();")
+    div(class="col-xs-1")
+      i(class="fa fa-shopping-cart")
+div(id="search-bar" class="search-bar")
+  form(class="container")
+    div(class="form-group")
+      i(class="fa fa-search")
+      input(type="text" class="form-control" id="search" placeholder="Cari Barang atau User")
+div(id="overlay" class="overlay" onclick="hide_everything();")
+div(id="sidebar" class="container-fluid sidebar")
+  block content
+  hr(class="row no-vertical-margin")
+  ul(class="row horizontal-list-menu no-vertical-margin")
+    li(class="col-xs-12 menu")
+      i(class="fa fa-th")
+      span Kategori
+  hr(class="row no-vertical-margin")
+  ul(class="row horizontal-list-menu")
+    li(class="col-xs-12 menu")
+      span About
+    li(class="col-xs-12 menu")
+      span Produk Populer
+    li(class="col-xs-12 menu")
+      span Buku Bekas
+    li(class="col-xs-12 menu")
+      span Blog

@@ -1,5 +1,37 @@
 extends layout
 
 block content
-  h1= Login
-  p Ini buat Login
+  include includes/navigation-not-login
+  div(class="container-fluid login-section")
+    div(class="container")
+      if error_message
+        div(class="container alert-message")
+          span= error_message
+          i(class="fa fa-warning")
+    div(class="login-box")
+      h3(class="text-center") LOGIN
+      br
+      form(id="login-form" class="container" method="POST" action="/login")
+        div(class="container form-group my-form")
+          input(id="username_or_email" name="username_or_email" type="text" class="form-control" placeholder="Username atau Email")
+        div(class="container form-group my-form")
+          input(id="password" name="password" type="password" class="form-control" placeholder="Password")
+        div(class="container")
+          div(class="col-xs-6")
+            div(class="checkbox")
+              label
+                input(type="checkbox")
+                span Ingat Saya
+          div(class="col-xs-6 text-right")
+            div
+              a(href="#" class="a") Lupa Password
+        div(class="container")
+            button(type="submit" class="btn white-btn full-btn")
+              b LOGIN
+        hr
+        div(class="container")
+            button(type="submit" class="btn blue-btn full-btn") Login dengan Facebook
+        hr
+        div(class="container text-center")
+          span Belum punya akun? 
+            a(href="#" class="a") Register disini

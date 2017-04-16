@@ -1,0 +1,267 @@
+$tosca: #00a79d;
+$black: #515151;
+$soft-black: #444444;
+$bright-grey: #fcfcfc;
+$light-grey: #efefef;
+$grey: #797979;
+$blue: #4267b2;
+$red: #d9534f;
+$orange: #ff951d;
+$dark-orange: #cf7815;
+
+@mixin z-depth($val) {
+  box-shadow: 0px 1px $val+px $black !important;
+}
+
+@mixin border-all($color) {
+  border: solid 1px $color !important;
+}
+
+@mixin smooth-transition($time) {
+  transition: all $time+s ease;
+}
+
+@mixin flat-button($color,$outline,$font,$height){
+  height: $height+em;
+  border-radius: 0em !important;
+  background-color: $color !important;
+  @include border-all($outline);
+  color: $font !important;
+}
+
+@mixin do-transform($x, $y) {
+  -ms-transform: translate($x, $y); /* IE 9 */
+  -webkit-transform: translate($x, $y); /* Safari */
+  transform: translate($x, $y);;
+  @include smooth-transition(0.3);
+}
+
+.tosca-text{
+  color: $tosca !important;
+}
+
+div.nav{
+  background-color: $tosca;
+  @include z-depth(5);
+  color: white;
+  height: 3.5em;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+
+  .row{
+    padding: 0.5em 1em;
+
+  .fa{
+    font-size: 1.6em;
+    margin-top:0.2em;
+  }
+
+  .fa:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  img.logo{
+    height: 2.25em;
+  }
+  }
+}
+
+div.login-section{
+  padding-top: 6em;
+  height: 100vh;
+  background-color: $tosca;
+
+  .login-box{
+    height: 500px;
+    h3, span, a{
+      color: white;
+    }
+    form{
+      div{
+        margin-top: 0em;
+        padding: 0px;
+      }
+    }
+  }
+
+}
+
+.alert-message{
+  background-color: $red !important;
+  color: white !important;
+  border-left: 5px solid white;
+  padding: 1em 0em;
+  i.fa{
+    float:right;
+  }
+}
+
+.my-form{
+  label{
+    font-weight: 400;
+  }
+  input{
+    background-color: white;
+    border-radius: 0px !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  input:focus{
+    @include z-depth(10);
+  }
+}
+
+.form-group.error{
+  input{
+    @include border-all($red);
+  }
+  label{
+    background-color: $red;
+    color: white;
+  }
+}
+
+.form-group.success{
+  input{
+    @include border-all(green);
+  }
+}
+
+.white-space-top{
+  margin-top:1em;
+}
+
+.white-btn{
+  background-color: white;
+  color: $tosca !important;
+}
+
+.white-btn:hover, .white-btn:focus{
+  color: $tosca !important;
+  background-color: $light-grey;
+}
+
+.blue-btn{
+  background-color: $blue;
+  color: white !important;
+}
+
+.full-btn{
+  width: 100%;
+}
+
+.sidebar{
+  position: fixed;
+  @include do-transform(-100%,0px);
+  width: 18em;
+  height: 100vh;
+  background-color: white;
+  @include z-depth(5);
+  z-index: 9;
+
+  .featured-menu{
+    padding-top: 4.5em;
+    background-color: $tosca;
+    height: 8.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.transparent-flat-btn, .transparent-flat-btn:focus{
+  @include flat-button(transparent,white,white,3);
+}
+
+.transparent-flat-btn:hover{
+  @include flat-button(white,white,$tosca,3);
+  @include smooth-transition(0.2);
+}
+
+.orange-flat-btn, .orange-flat-btn:focus{
+  @include flat-button($orange,$orange,white,3);
+}
+
+.orange-flat-btn:hover{
+  @include flat-button($dark-orange,$dark-orange,white,3);
+  @include smooth-transition(0.2);
+}
+
+.horizontal-list-menu{
+  list-style-type: none;
+  padding-left: 0em;
+
+  .menu{
+    color: $grey;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    margin:0em;
+
+    i.fa{
+      margin-right: 1em;
+    }
+  }
+
+  .menu:hover{
+    color: white !important;
+    background-color: $tosca;
+    cursor: pointer;
+    @include smooth-transition(0.1);
+  }
+}
+
+.no-vertical-margin{
+  margin-top: 0em !important;
+  margin-bottom: 0em !important;
+}
+
+.overlay{
+  z-index: 8;
+  opacity: 0.8;
+  overflow-x: hidden;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  cursor: pointer;
+}
+
+.lock-scrolling{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.search-bar{
+  z-index: 9;
+  position: fixed;
+  width: 100%;
+  height: 8em;
+  background-color: white;
+  @include z-depth(5);
+  @include do-transform(0px,-100%);
+
+  form{
+    margin-top: 4.5em;
+    div.form-group{
+      position: relative;
+      input{
+        border-radius: 0em !important;
+      }
+      i.fa{
+        color: $grey;
+        position: absolute;
+        top: 0.6em;
+        right: 1em;
+      }
+      i.fa:hover{
+        color: black;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.slide-in{
+  @include do-transform(0px,0px);
+}
